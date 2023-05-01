@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LandingPageActivity">
+
+    <Button
+        android:id="@+id/buttonBrowseGames"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/browse_games"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSearchGames"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/search_games"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBrowseGames" />
+
+    <Button
+        android:id="@+id/buttonViewOwnedGames"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/view_owned_games"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSearchGames" />
+
+    <Button
+        android:id="@+id/buttonReturnGames"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/return_games"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewOwnedGames" />
+
+    <Button
+        android:id="@+id/buttonManageApp"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/manage_app"
+        android:textSize="18sp"
+        android:visibility="visible"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReturnGames" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

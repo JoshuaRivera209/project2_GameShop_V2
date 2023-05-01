@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Gamers Paradise</string>
+    <string name="login">login</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="or">or</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="browse_games">Browse Games</string>
+    <string name="search_games">Search Games</string>
+    <string name="view_owned_games">View Owned Games</string>
+    <string name="return_games">Return Games</string>
+    <string name="manage_app">Manage App</string>
+    <string name="logout">Logout?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="logout_w_o_question_mark">Logout</string>
+    <string name="currentuser">currentUser</string>
+</resources>
