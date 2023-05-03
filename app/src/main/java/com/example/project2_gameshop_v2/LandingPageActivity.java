@@ -27,7 +27,6 @@ public class LandingPageActivity extends AppCompatActivity {
 
     private static final String USER_ID_KEY = "com.example.project2_gameshop_v2.userIdKey";
     private static final String PREFERENCES_KEY = "com.example.project2_gameshop_v2.PREFERENCES_KEY";
-    private TextView mLandingDisplay;
     private Button mAdminButton;
     private Button mBrowseButton;
     private Button mSearchButton;
@@ -52,6 +51,7 @@ public class LandingPageActivity extends AppCompatActivity {
         getPrefs();
         wireupDisplay();
         checkForUser();
+//        checkforGames();
         loginUser(mUserId);
     }
 
@@ -106,36 +106,6 @@ public class LandingPageActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.buttonBrowseGames:
-//                Intent browseIntent = BrowseGamesActivity.intentFactory(getApplicationContext());
-//                startActivity(browseIntent);
-//                break;
-//
-//            case R.id.buttonSearchGames:
-//                Intent searchIntent = SearchGamesActivity.intentFactory(getApplicationContext());
-//                startActivity(searchIntent);
-//                break;
-//
-//            case R.id.buttonViewOwnedGames:
-//                Intent viewOwnedIntent = ViewOwnedActivity.intentFactory(getApplicationContext());
-//                startActivity(viewOwnedIntent);
-//                break;
-//
-//            case R.id.buttonReturnGames:
-//                Intent returnGamesIntent = ReturnGamesActivity.intentFactory(getApplicationContext());
-//                startActivity(returnGamesIntent);
-//                break;
-//
-//            case R.id.buttonManageApp:
-//                Intent adminIntent = ManageAppActivity.intentFactory(getApplicationContext());
-//                startActivity(adminIntent);
-//                break;
-//        }
-//    }
-
     private void checkForUser() {
         // do we have user in intent?
         mUserId = getIntent().getIntExtra(USER_ID_KEY, -1);
@@ -165,6 +135,52 @@ public class LandingPageActivity extends AppCompatActivity {
 
         Intent intent = LoginActivity.intentFactory(this);
         startActivity(intent);
+    }
+
+    // Initializes all games on first-time login
+    private void checkforGames() {
+        List<Game> allGames = mGameShopDAO.getAllGames();
+        if (allGames.size() <= 0) {
+            // Rated E games
+            Game nba2K = new Game("NBA 2K23", 59.99, "RATED E: Immerse yourself in the world of basketball, whether you like to create your own team, play with up-to-date rosters, get a taste of the past, or even play online with your own custom player, if you're a fan of basketball in any aspect then this game is for you.", 1);
+            allGames.add(nba2K);
+            Game nflFootball = new Game("Madden NFL", 59.99, "RATED E: Madden is the leading football video game franchise for a reason. From its realistic gameplay to the ability to customize virtually anything a football fan may ask for, Madden has been the ultimate all-in-one package for football fans for years on end.", 1);
+            allGames.add(nflFootball);
+            Game fifa = new Game("FIFA 23", 59.99, "RATED E: Fifa is back with another year of exciting content for soccer fans across the world. With the flagship game mode Ultimate Team, players can let their wildest dreams come true by being able to build any team that they want and have new, young players on the same team as the legends of the game. Purchase today to see the variety of other modes there are available!", 1);
+            allGames.add(fifa);
+            Game crashBandicoot = new Game("Crash Bandicoot N. Sane Trilogy", 29.99, "RATED E: Relive your childhood with a remake of this classic franchise! This bundle includes all 3 titles of the iconic Crash Bandicoot trilogy, reprised to meet the modern standards of gaming, but also kept as original as possible that way we can all feel the nostalgia of the games we know and love.", 1);
+            allGames.add(crashBandicoot);
+            Game zelda = new Game("Legend of Zelda: Tears of Kingdom (SWITCH ONLY)", 59.99, "RATED E: The highly anticipated sequel to Breath Of The Wild is finally here! Destined to be full of action and puzzles, follow link through yet another journey throughout Hyrule and defend the kingdom from an army of foes once more!", 1);
+            allGames.add(zelda);
+
+            // Rated T Games
+            Game spiderman = new Game("Spiderman: Miles Morales", 44.99, "RATED T: Join the adventure of Miles Morales, as he follows the footsteps of his mentor Peter Parker in becoming the web-slinging Spiderman. In this sequel, Miles must take the reins and suit up to defend his city.", 1);
+            allGames.add(spiderman);
+            Game hogwarts = new Game("Hogwarts Legacy", 69.99, "RATED T: Easily one of the most anticipated titles of the year, Hogwarts Legacy is every Harry Potter fan's dream come true without a doubt. In this standalone title, explore all of Hogwarts and its surroundings in this free roam world as a student of the school. Get your own wand, cast the spells you want, and customize the look of your own character.", 1);
+            allGames.add(hogwarts);
+            Game horizon = new Game("Horizon Forbidden West", 59.99, "RATED T: A direct sequel to its previous title, Horizon Forbidden West is a continuation of Aloy's journey from the first installment. Explore the frontier, discover new machines to fight, and help Aloy bring balance to the world in this post-apocalyptic action and adventure title.", 1);
+            allGames.add(horizon);
+            Game streetFighter = new Game("Street Fighter 30th Anniversary (SWITCH ONLY)", 29.99, "RATED T: Relive your childhood with a remake of this classic franchise! Fight against a friend or the computer, enjoy this reprised classic on the Nintendo Switch.", 1);
+            allGames.add(streetFighter);
+            Game metroid = new Game("Metro Prime Remastered (SWITCH ONLY)", 39.99, "RATED T: Play behind the visor of the iconic franchise as Samus Aran. Relive the adventures of Samus as she navigates her way through a dangerous alien planet. This reprised first person adventure includes improved graphics, sounds, updated control schemes, and unlockable art.", 1);
+            allGames.add(metroid);
+
+            // Rated M Games
+            Game RDR2 = new Game("Red Dead Redemption 2", 24.99, "RATED M: An iconic franchise, the second installment of Red Dead Redemption has accumulated over 175 game awards and has received over 250 perfect scores from critics. This treacherous tale of loyalty follows Arthur Morgan and the Van Der Linde gang, outlaws on the run, as they must rob, steal, and fight their way through the American lands in order to survive.", 1);
+            allGames.add(RDR2);
+            Game RE4 = new Game("Resident Evil 4", 59.99, "RATED M: In this remake of the classic series, join Leon S. Kennedy after the disaster of Racoon City, where his resolve led him to be recruited as an agent working with the President of the United States. In this remastered tale, Leon is tasked with saving the president's daughter after she is kidnapped, but as he sets out to complete his rescue mission he soon finds out the amount of horror that awaits him.", 1);
+            allGames.add(RE4);
+            Game deadSpace = new Game("Dead Space", 49.99,"RATED M: This classic sci-fi survival horror title returns completely rebuilt to improve the overall immersive experience from a horror aspect. With improved audio and graphics Isaac's journey to find his lover on his crew's massacred mining ship is more horrifying than ever." , 1);
+            allGames.add(deadSpace);
+            Game eldenRing = new Game("Elden Ring", 59.99, "RATED M: Winner of the Game of the Year Award, Elden Ring is a near perfect souls-like experience. For newcomers and hardcore fans of the genre, Elden Ring has difficult experiences for everyone. Explore this open-world action RPG title and become an Elden Lord as you rise and harness the power of the Elden Ring.", 1);
+            allGames.add(eldenRing);
+            Game deadIsland = new Game("Dead Island 2", 59.99, "RATED M: This long awaited sequel to Dead Island is finally here. With horror and dark humor mixed, this zombie slaying first-person adventure takes the player through a zombie-plagued Los Angeles. Realizing you are resistant to the virus, take on the undead as you uncover the truth about what you really are. Use everything you possibly can to craft your own weapons and turn LA into a bloody playground.", 1);
+            allGames.add(deadIsland);
+
+            for (Game g : allGames) {
+                mGameShopDAO.insert(g);
+            }
+        }
     }
 
     private void getPrefs() {

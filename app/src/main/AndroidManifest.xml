@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Project2_GameShop_V2"
         tools:targetApi="31">
         <activity
+            android:name=".ManageUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManageGamesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ManageAppActivity"
             android:exported="false" />
         <activity

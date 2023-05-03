@@ -19,7 +19,6 @@ public class ReturnGamesActivity extends AppCompatActivity {
 
     public static Intent intentFactory(Context context) {
         Intent intent = new Intent(context, ReturnGamesActivity.class);
-//        intent.putExtra(USER_ID_KEY, userId);
         return intent;
     }
 

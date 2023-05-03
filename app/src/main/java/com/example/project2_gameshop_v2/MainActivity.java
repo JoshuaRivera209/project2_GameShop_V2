@@ -9,24 +9,29 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mButton;
+    private Button mLoginButton, mCreateProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mButton = findViewById(R.id.buttonSendToLogin);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        mLoginButton = findViewById(R.id.buttonSendToLogin);
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openLoginActivity();
+                Intent intent = LoginActivity.intentFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
-    }
 
-    private void openLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        mCreateProfileButton = findViewById(R.id.buttonSendToCreateProfile);
+        mCreateProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = CreateProfileActivity.intentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -8,17 +8,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class SearchGamesActivity extends AppCompatActivity {
+public class ManageUsersActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_games);
+        setContentView(R.layout.activity_manage_users);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public static Intent intentFactory(Context context) {
-        Intent intent = new Intent(context, SearchGamesActivity.class);
+        Intent intent = new Intent(context, ManageUsersActivity.class);
         return intent;
     }
 

@@ -62,4 +62,13 @@ public class Game {
     public void setCopies(int copies) {
         mCopies = copies;
     }
+
+    @Override
+    public String toString() {
+        return "Game: " + mGameName + "\n" +
+                "Overview: " + mDescription + "\n" +
+                "Price: $" + mPrice + "\n" +
+                "Copies: " + mCopies + "\n" +
+                "=-=-=-=-=-==-=-=-=-=-=-==-=-=-=-=-=-==-\n";
+    }
 }

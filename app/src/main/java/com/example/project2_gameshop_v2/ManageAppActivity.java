@@ -7,19 +7,42 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class ManageAppActivity extends AppCompatActivity {
+
+    private Button mManageGamesButton, mManageUsersButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_app);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        wireupDisplay();
+    }
+
+    private void wireupDisplay() {
+        mManageGamesButton = findViewById(R.id.buttonManageGames);
+        mManageGamesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent manageGamesIntent = ManageGamesActivity.intentFactory(getApplicationContext());
+                startActivity(manageGamesIntent);
+            }
+        });
+        mManageUsersButton = findViewById(R.id.buttonManageUsers);
+        mManageUsersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent manageUsersIntent = ManageUsersActivity.intentFactory(getApplicationContext());
+                startActivity(manageUsersIntent);
+            }
+        });
     }
 
     public static Intent intentFactory(Context context) {
         Intent intent = new Intent(context, ManageAppActivity.class);
-//        intent.putExtra(USER_ID_KEY, userId);
         return intent;
     }
 
