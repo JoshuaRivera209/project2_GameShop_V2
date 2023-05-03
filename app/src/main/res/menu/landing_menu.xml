@@ -5,31 +5,17 @@
     <item android:id="@+id/item1"
         android:icon="@drawable/ic_user_icon"
         android:title="Item 1"
-        app:showAsAction="ifRoom" />
-
-        <item android:id="@+id/currentUser"
-            android:title="@string/currentuser"
-            app:showAsAction="never"/>
+        app:showAsAction="ifRoom" >
+        <menu>
+            <item
+                android:id="@+id/currentUser"
+                android:title="@string/currentuser"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
 
     <item android:id="@+id/landingMenuLogout"
         android:title="@string/logout_w_o_question_mark"
         app:showAsAction="never" />
-
-<!--    <item android:id="@+id/item3"-->
-<!--        android:title="Item 3"-->
-<!--        app:showAsAction="never">-->
-
-<!--        <menu>-->
-<!--            <item android:id="@+id/subitem1"-->
-<!--                android:title="Sub Item 1"/>-->
-
-<!--            <item android:id="@+id/subitem2"-->
-<!--                android:title="Sub Item 2"/>-->
-<!--        </menu>-->
-
-<!--    </item>-->
-
-
-
 
 </menu>

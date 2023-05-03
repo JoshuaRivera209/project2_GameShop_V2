@@ -16,4 +16,9 @@
     <string name="no">no</string>
     <string name="logout_w_o_question_mark">Logout</string>
     <string name="currentuser">currentUser</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account_log_in_below"><![CDATA[Already Have an account? Log In below!]]></string>
+    <string name="to_login">To Login</string>
+    <string name="manage_games">Manage Games</string>
+    <string name="manage_users">Manage Users</string>
 </resources>

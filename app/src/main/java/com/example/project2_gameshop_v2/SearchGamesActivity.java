@@ -19,7 +19,6 @@ public class SearchGamesActivity extends AppCompatActivity {
 
     public static Intent intentFactory(Context context) {
         Intent intent = new Intent(context, SearchGamesActivity.class);
-//        intent.putExtra(USER_ID_KEY, userId);
         return intent;
     }
 
