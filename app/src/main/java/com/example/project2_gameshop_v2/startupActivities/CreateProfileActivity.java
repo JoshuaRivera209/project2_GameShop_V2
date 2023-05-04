@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.startupActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,17 +7,16 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.project2_gameshop_v2.R;
+import com.example.project2_gameshop_v2.User;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
-
-import java.util.List;
 
 public class CreateProfileActivity extends AppCompatActivity {
 

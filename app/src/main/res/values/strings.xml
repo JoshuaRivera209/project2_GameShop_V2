@@ -24,4 +24,6 @@
     <string name="search_for_a_game">Search for a Game!</string>
     <string name="purchase_game">Purchase Game</string>
     <string name="okay">OK</string>
+    <string name="add_game">Add Game</string>
+    <string name="delete_game">Delete Game</string>
 </resources>

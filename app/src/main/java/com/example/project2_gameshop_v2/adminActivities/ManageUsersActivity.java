@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.adminActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,17 +8,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class ManageGamesActivity extends AppCompatActivity {
+import com.example.project2_gameshop_v2.R;
+
+public class ManageUsersActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_games);
+        setContentView(R.layout.activity_manage_users);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public static Intent intentFactory(Context context) {
-        Intent intent = new Intent(context, ManageGamesActivity.class);
+        Intent intent = new Intent(context, ManageUsersActivity.class);
         return intent;
     }
 

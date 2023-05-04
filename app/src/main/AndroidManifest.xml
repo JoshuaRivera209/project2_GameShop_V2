@@ -12,37 +12,43 @@
         android:theme="@style/Theme.Project2_GameShop_V2"
         tools:targetApi="31">
         <activity
-            android:name=".ManageUsersActivity"
+            android:name=".adminActivities.AddGameActivity"
             android:exported="false" />
         <activity
-            android:name=".ManageGamesActivity"
+            android:name=".adminActivities.DeleteGamesActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".adminActivities.ManageUsersActivity"
             android:exported="false" />
         <activity
-            android:name=".ManageAppActivity"
+            android:name=".adminActivities.ManageGamesActivity"
             android:exported="false" />
         <activity
-            android:name=".ReturnGamesActivity"
+            android:name=".startupActivities.CreateProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewOwnedActivity"
+            android:name=".adminActivities.ManageAppActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchGamesActivity"
+            android:name=".userActivities.ReturnGamesActivity"
             android:exported="false" />
         <activity
-            android:name=".BrowseGamesActivity"
+            android:name=".userActivities.ViewOwnedActivity"
             android:exported="false" />
         <activity
-            android:name=".LandingPageActivity"
+            android:name=".userActivities.SearchGamesActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".userActivities.BrowseGamesActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".userActivities.LandingPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startupActivities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startupActivities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

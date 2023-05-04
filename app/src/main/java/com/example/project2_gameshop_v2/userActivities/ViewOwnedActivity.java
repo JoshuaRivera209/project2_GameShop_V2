@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.userActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,13 +10,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
+import com.example.project2_gameshop_v2.Game;
+import com.example.project2_gameshop_v2.R;
+import com.example.project2_gameshop_v2.User;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
-
-import java.util.List;
 
 public class ViewOwnedActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.userActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project2_gameshop_v2.Game;
+import com.example.project2_gameshop_v2.R;
+import com.example.project2_gameshop_v2.User;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 
@@ -148,7 +151,6 @@ public class SearchGamesActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO: implement item purchase
                         Game purchasedGame = mGameShopDAO.getGameByName(selectedGame);
                         int currentCopies = purchasedGame.getCopies();
                         purchasedGame.setCopies(currentCopies - 1);
@@ -156,6 +158,10 @@ public class SearchGamesActivity extends AppCompatActivity {
                         mUser.getGameList().add(purchasedGame);
                         mGameShopDAO.update(mUser);
                         Toast.makeText(SearchGamesActivity.this, "Purchase Successful!", Toast.LENGTH_LONG).show();
+                        mTextView.setText(mGameShopDAO.getGameByName(selectedGame).toString());
+                        if (mGameShopDAO.getGameByName(selectedGame).getCopies() != 1) {
+                            mButton.setText("Sold Out");
+                        }
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),
