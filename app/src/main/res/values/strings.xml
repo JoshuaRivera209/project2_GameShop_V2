@@ -21,4 +21,7 @@
     <string name="to_login">To Login</string>
     <string name="manage_games">Manage Games</string>
     <string name="manage_users">Manage Users</string>
+    <string name="search_for_a_game">Search for a Game!</string>
+    <string name="purchase_game">Purchase Game</string>
+    <string name="okay">OK</string>
 </resources>
