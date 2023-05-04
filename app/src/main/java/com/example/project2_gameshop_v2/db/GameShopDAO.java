@@ -43,4 +43,7 @@ public interface GameShopDAO {
 
     @Query("SELECT * FROM " + AppDataBase.GAME_TABLE)
     List<Game> getAllGames();
+
+    @Query("SELECT * FROM " + AppDataBase.GAME_TABLE + " WHERE mGameName = :gameName ")
+    Game getGameByName(String gameName);
 }

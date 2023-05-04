@@ -51,7 +51,7 @@ public class LandingPageActivity extends AppCompatActivity {
         getPrefs();
         wireupDisplay();
         checkForUser();
-//        checkforGames();
+        checkforGames();
         loginUser(mUserId);
     }
 

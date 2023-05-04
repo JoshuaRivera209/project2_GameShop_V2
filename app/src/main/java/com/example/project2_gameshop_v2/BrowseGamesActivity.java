@@ -7,9 +7,11 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
@@ -20,6 +22,7 @@ public class BrowseGamesActivity extends AppCompatActivity {
 
     private GameShopDAO mGameShopDAO;
     private List<Game> allGames;
+    private TextView allGamesTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,16 @@ public class BrowseGamesActivity extends AppCompatActivity {
     }
 
     private void displayGames() {
-        for (Game g : allGames) {
-            g.toString();
+        allGamesTextView = findViewById(R.id.browseGamesTextView);
+        allGamesTextView.setMovementMethod(new ScrollingMovementMethod());
+        if (allGames.size() > 0) {
+            StringBuilder sb = new StringBuilder();
+            for (Game g : allGames) {
+                sb.append(g.toString());
+            }
+            allGamesTextView.setText(sb.toString());
         }
+
     }
 
     public static Intent intentFactory(Context context) {
