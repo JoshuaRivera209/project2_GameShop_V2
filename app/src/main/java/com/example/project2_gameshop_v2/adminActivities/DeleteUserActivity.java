@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2.userActivities;
+package com.example.project2_gameshop_v2.adminActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,93 +10,77 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project2_gameshop_v2.Game;
 import com.example.project2_gameshop_v2.GameAdapter;
 import com.example.project2_gameshop_v2.R;
 import com.example.project2_gameshop_v2.User;
+import com.example.project2_gameshop_v2.UserAdapter;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 import com.example.project2_gameshop_v2.gameItem;
+import com.example.project2_gameshop_v2.userItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ReturnGamesActivity extends AppCompatActivity {
-
-    private static final String USER_ID_KEY = "com.example.project2_gameshop_v2.userIdKey";
-    private static final String PREFERENCES_KEY = "com.example.project2_gameshop_v2.PREFERENCES_KEY";
-
+public class DeleteUserActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private GameAdapter mAdapter;
+    private UserAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private SharedPreferences mPreferences;
-    private int mUserId;
-    private User mUser;
     private GameShopDAO mGameShopDAO;
-    private ArrayList<gameItem> gameItemList;
-    TextView emptyReturnGamesTextView;
+    private ArrayList<userItem> userItemList;
+    private List<User> mUserList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_return_games);
+        setContentView(R.layout.activity_delete_user);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getDatabase();
-        getUserPrefs();
-        getReturnedGames();
+        getAllUsers();
     }
 
-    private void getReturnedGames() {
-        gameItemList = new ArrayList<>();
-        if (mUser.getGameList().isEmpty() || mUser.getGameList() == null) {
-            emptyReturnGamesTextView = findViewById(R.id.emptyReturnGamesTextView);
-            emptyReturnGamesTextView.setText("In order to return a game you must first own it! (Give me your money)");
+    private void getAllUsers() {
+        userItemList = new ArrayList<>();
+        mUserList = mGameShopDAO.getAllUsers();
+        for (User u : mUserList) {
+            userItemList.add(new userItem(R.drawable.ic_user_box_icon, u.getUserName()));
         }
-        for (Game g : mUser.getGameList()) {
-            gameItemList.add(new gameItem(R.drawable.ic_controller, g.getGameName(), g.getDescription()));
-        }
-        mRecyclerView = findViewById(R.id.returnGamesRecyclerView);
+        mRecyclerView = findViewById(R.id.deleteUsersRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new GameAdapter(gameItemList);
+        mAdapter = new UserAdapter(userItemList);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new GameAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new UserAdapter.OnItemClickListener() {
             @Override
             public void onDeleteClick(int position) {
-                returnItem(position);
+                deleteItem(position);
             }
         });
-
     }
 
-    private void returnItem(int position) {
-        String gameReturn = gameItemList.get(position).getGameTitle();
+    private void deleteItem(int position) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
 
-        alertBuilder.setMessage("Confirm Return: Are you sure you would like to return this game?");
+        alertBuilder.setMessage("Confirm Deletion: Are you sure you would like to delete this item from the database? Once deleted data cannot be retrieved.");
 
         alertBuilder.setPositiveButton(getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Game currentGameReturn = mGameShopDAO.getGameByName(gameReturn);
-                        int currentCopies = currentGameReturn.getCopies();
-                        currentGameReturn.setCopies(currentCopies + 1);
-                        mGameShopDAO.update(currentGameReturn);
-                        mUser.getGameList().remove(position);
-                        mGameShopDAO.update(mUser);
+                        // TODO: implement delete logic
+                        // logic goes before remove item is called
                         removeItem(position);
-                        Toast.makeText(ReturnGamesActivity.this, "Return Successful!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DeleteUserActivity.this, "Deletion Successful!", Toast.LENGTH_LONG).show();
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),
@@ -110,20 +94,8 @@ public class ReturnGamesActivity extends AppCompatActivity {
     }
 
     private void removeItem(int position) {
-        gameItemList.remove(position);
+        userItemList.remove(position);
         mAdapter.notifyItemRemoved(position);
-    }
-
-    private void getPrefs() {
-        mPreferences = this.getSharedPreferences(PREFERENCES_KEY, Context.MODE_PRIVATE);
-    }
-
-    private void getUserPrefs() {
-        if(mPreferences == null){
-            getPrefs();
-        }
-        mUserId = mPreferences.getInt(USER_ID_KEY, -1);
-        mUser = mGameShopDAO.getUserById(mUserId);
     }
 
     private void getDatabase() {
@@ -135,7 +107,7 @@ public class ReturnGamesActivity extends AppCompatActivity {
     }
 
     public static Intent intentFactory(Context context) {
-        Intent intent = new Intent(context, ReturnGamesActivity.class);
+        Intent intent = new Intent(context, DeleteUserActivity.class);
         return intent;
     }
 

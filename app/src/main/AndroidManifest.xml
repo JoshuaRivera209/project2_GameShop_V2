@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Project2_GameShop_V2"
         tools:targetApi="31">
         <activity
+            android:name=".adminActivities.DeleteUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adminActivities.AddAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adminActivities.AddUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".adminActivities.AddGameActivity"
             android:exported="false" />
         <activity
