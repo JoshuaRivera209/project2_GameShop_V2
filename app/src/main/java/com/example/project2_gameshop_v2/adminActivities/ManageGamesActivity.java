@@ -1,4 +1,4 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.adminActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,39 +10,44 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class ManageAppActivity extends AppCompatActivity {
+import com.example.project2_gameshop_v2.R;
+import com.example.project2_gameshop_v2.userActivities.BrowseGamesActivity;
 
-    private Button mManageGamesButton, mManageUsersButton;
+public class ManageGamesActivity extends AppCompatActivity {
+
+    private Button deleteGameButton, addGameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_app);
+        setContentView(R.layout.activity_manage_games);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         wireupDisplay();
     }
 
     private void wireupDisplay() {
-        mManageGamesButton = findViewById(R.id.buttonManageGames);
-        mManageGamesButton.setOnClickListener(new View.OnClickListener() {
+        deleteGameButton = findViewById(R.id.deleteGameButton);
+        deleteGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent manageGamesIntent = ManageGamesActivity.intentFactory(getApplicationContext());
-                startActivity(manageGamesIntent);
+                Intent deleteGamesIntent = DeleteGamesActivity.intentFactory(getApplicationContext());
+                startActivity(deleteGamesIntent);
             }
         });
-        mManageUsersButton = findViewById(R.id.buttonManageUsers);
-        mManageUsersButton.setOnClickListener(new View.OnClickListener() {
+        addGameButton = findViewById(R.id.addGameButton);
+        addGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent manageUsersIntent = ManageUsersActivity.intentFactory(getApplicationContext());
-                startActivity(manageUsersIntent);
+                Intent deleteGamesIntent = AddGameActivity.intentFactory(getApplicationContext());
+                startActivity(deleteGamesIntent);
             }
         });
     }
 
+
     public static Intent intentFactory(Context context) {
-        Intent intent = new Intent(context, ManageAppActivity.class);
+        Intent intent = new Intent(context, ManageGamesActivity.class);
         return intent;
     }
 

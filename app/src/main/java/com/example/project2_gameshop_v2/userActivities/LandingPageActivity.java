@@ -1,10 +1,9 @@
-package com.example.project2_gameshop_v2;
+package com.example.project2_gameshop_v2.userActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,10 +15,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
+import com.example.project2_gameshop_v2.Game;
+import com.example.project2_gameshop_v2.R;
+import com.example.project2_gameshop_v2.User;
+import com.example.project2_gameshop_v2.adminActivities.ManageAppActivity;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
+import com.example.project2_gameshop_v2.startupActivities.LoginActivity;
 
 import java.util.List;
 
