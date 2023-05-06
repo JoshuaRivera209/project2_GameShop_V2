@@ -72,7 +72,7 @@ public class DeleteGamesActivity extends AppCompatActivity {
     private void deleteItem(int position) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
 
-        alertBuilder.setMessage("Confirm Return: Are you sure you would like to return this game?");
+        alertBuilder.setMessage("Confirm Deletion: Are you sure you would like to delete this game from the database? Once deleted data cannot be retrieved.");
 
         alertBuilder.setPositiveButton(getString(R.string.yes),
                 new DialogInterface.OnClickListener() {

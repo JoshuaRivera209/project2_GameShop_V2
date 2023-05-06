@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminActivities.DeleteGamesActivity">
-
+    tools:context=".adminActivities.DeleteUserActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/deleteGamesRecyclerView"
+        android:id="@+id/deleteUsersRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"

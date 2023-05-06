@@ -26,4 +26,13 @@
     <string name="okay">OK</string>
     <string name="add_game">Add Game</string>
     <string name="delete_game">Delete Game</string>
+    <string name="delete_user">Delete User</string>
+    <string name="add_admin">Add Admin</string>
+    <string name="add_user">Add User</string>
+    <string name="enter_game_title">Game Title</string>
+    <string name="enter_game_description">Game Description</string>
+    <string name="enter_game_price">Game Price</string>
+    <string name="enter_number_of_copies">Number of Copies</string>
+    <string name="enter_game_information_below">Enter Game Information Below</string>
+    <string name="games_to_return">Games To Return</string>
 </resources>
