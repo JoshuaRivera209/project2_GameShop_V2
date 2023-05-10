@@ -55,6 +55,7 @@
             android:exported="false" />
         <activity
             android:name=".startupActivities.LoginActivity"
+            android:parentActivityName=".startupActivities.MainActivity"
             android:exported="false" />
         <activity
             android:name=".startupActivities.MainActivity"

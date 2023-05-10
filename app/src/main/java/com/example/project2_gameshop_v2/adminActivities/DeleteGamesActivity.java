@@ -78,8 +78,8 @@ public class DeleteGamesActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO: implement delete logic
-                        // logic goes before remove item is called
+                        Game gameToDelete = mGameShopDAO.getGameByName(mGameList.get(position).getGameName());
+                        mGameShopDAO.delete(gameToDelete);
                         removeItem(position);
                         Toast.makeText(DeleteGamesActivity.this, "Deletion Successful!", Toast.LENGTH_LONG).show();
                     }
