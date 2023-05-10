@@ -77,8 +77,8 @@ public class DeleteUserActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO: implement delete logic
-                        // logic goes before remove item is called
+                        User userToDelete = mGameShopDAO.getUserByUsername(mUserList.get(position).getUserName());
+                        mGameShopDAO.delete(userToDelete);
                         removeItem(position);
                         Toast.makeText(DeleteUserActivity.this, "Deletion Successful!", Toast.LENGTH_LONG).show();
                     }

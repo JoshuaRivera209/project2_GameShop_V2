@@ -35,4 +35,9 @@
     <string name="enter_number_of_copies">Number of Copies</string>
     <string name="enter_game_information_below">Enter Game Information Below</string>
     <string name="games_to_return">Games To Return</string>
+    <string name="add_user_to_db">Add User</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="add_user_credentials">Add User Credentials</string>
+    <string name="add_admin_credentials">Add Admin Credentials</string>
+    <string name="add_admin_to_db">Add Admin</string>
 </resources>

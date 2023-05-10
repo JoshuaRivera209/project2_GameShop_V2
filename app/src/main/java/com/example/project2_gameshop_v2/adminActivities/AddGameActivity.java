@@ -86,6 +86,7 @@ public class AddGameActivity extends AppCompatActivity {
                         Game newGame = new Game(GameTitle, GamePrice, GameDescription, GameCopies);
                         mGameShopDAO.insert(newGame);
                         Toast.makeText(AddGameActivity.this, "Game successfully added!", Toast.LENGTH_LONG).show();
+                        setFieldsBlank();
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),
@@ -96,6 +97,13 @@ public class AddGameActivity extends AppCompatActivity {
                     }
                 });
         alertBuilder.create().show();
+    }
+
+    private void setFieldsBlank() {
+        mGameTitleEditText.setText("");
+        mGameDescriptionEditText.setText("");
+        mGamePriceEditText.setText("");
+        mGameCopiesEditText.setText("");
     }
 
     private boolean getValuesFromDisplay() {

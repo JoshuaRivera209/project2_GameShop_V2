@@ -23,6 +23,7 @@ import com.example.project2_gameshop_v2.adminActivities.ManageAppActivity;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 import com.example.project2_gameshop_v2.startupActivities.LoginActivity;
+import com.example.project2_gameshop_v2.startupActivities.MainActivity;
 
 import java.util.List;
 
@@ -122,6 +123,8 @@ public class LandingPageActivity extends AppCompatActivity {
         mUserId = mPreferences.getInt(USER_ID_KEY, -1);
 
         if(mUserId != -1) {
+            Intent intent = MainActivity.intentFactory(this);
+            startActivity(intent);
             return;
         }
 
