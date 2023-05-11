@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/return_games_bg"
     tools:context=".userActivities.ReturnGamesActivity">
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_marginEnd="97dp"
         android:layout_marginBottom="689dp"
         android:text="@string/games_to_return"
+        android:textColor="#EC8843"
         android:textAlignment="center"
         android:textSize="25sp" />
 

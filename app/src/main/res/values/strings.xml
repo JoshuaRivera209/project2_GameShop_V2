@@ -40,4 +40,9 @@
     <string name="add_user_credentials">Add User Credentials</string>
     <string name="add_admin_credentials">Add Admin Credentials</string>
     <string name="add_admin_to_db">Add Admin</string>
+    <string name="create_a_new_profile">Create A New Profile!</string>
+    <string name="welcome_to_gamer_s_paradise">Welcome to Gamer\'s Paradise!</string>
+    <string name="landing_page_title">Welcome back gamer!</string>
+    <string name="your_owned_games">Your Owned Games</string>
+    <string name="you_are_in_view_owned_games">You are in view owned games</string>
 </resources>

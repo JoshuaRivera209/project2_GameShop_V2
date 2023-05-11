@@ -27,6 +27,8 @@ import com.example.project2_gameshop_v2.userActivities.ReturnGamesActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class DeleteGamesActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
@@ -81,7 +83,7 @@ public class DeleteGamesActivity extends AppCompatActivity {
                         Game gameToDelete = mGameShopDAO.getGameByName(mGameList.get(position).getGameName());
                         mGameShopDAO.delete(gameToDelete);
                         removeItem(position);
-                        Toast.makeText(DeleteGamesActivity.this, "Deletion Successful!", Toast.LENGTH_LONG).show();
+                        StyleableToast.makeText(DeleteGamesActivity.this, "Deletion Successful!", R.style.successDeleteGameToast).show();
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),

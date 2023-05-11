@@ -20,6 +20,8 @@ import com.example.project2_gameshop_v2.User;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class AddAdminActivity extends AppCompatActivity {
 
     private EditText mAddAdminUsername, mAddAdminPassword, mAddAdminPasswordConfirm;
@@ -96,7 +98,7 @@ public class AddAdminActivity extends AppCompatActivity {
                         if (!passwordCheck()) {
                             if (!checkForUserInDatabase()) {
                                 addAdminToDatabase(mUser);
-                                Toast.makeText(AddAdminActivity.this, "User successfully added!", Toast.LENGTH_LONG).show();
+                                StyleableToast.makeText(AddAdminActivity.this, "User successfully added!", R.style.successToast).show();
                                 setFieldsBlank();
                             }
                         }

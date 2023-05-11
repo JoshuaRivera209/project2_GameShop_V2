@@ -26,6 +26,8 @@ import com.example.project2_gameshop_v2.gameItem;
 
 import java.util.ArrayList;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class ReturnGamesActivity extends AppCompatActivity {
 
     private static final String USER_ID_KEY = "com.example.project2_gameshop_v2.userIdKey";
@@ -96,7 +98,7 @@ public class ReturnGamesActivity extends AppCompatActivity {
                         mUser.getGameList().remove(position);
                         mGameShopDAO.update(mUser);
                         removeItem(position);
-                        Toast.makeText(ReturnGamesActivity.this, "Return Successful!", Toast.LENGTH_LONG).show();
+                        StyleableToast.makeText(ReturnGamesActivity.this, "Return Successful!", R.style.successGameToast).show();
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),

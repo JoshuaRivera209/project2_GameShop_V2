@@ -24,6 +24,8 @@ import com.example.project2_gameshop_v2.userActivities.SearchGamesActivity;
 
 import java.util.List;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class AddGameActivity extends AppCompatActivity {
 
     private EditText mGameTitleEditText, mGameDescriptionEditText, mGamePriceEditText, mGameCopiesEditText;
@@ -54,10 +56,10 @@ public class AddGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!getValuesFromDisplay()) {
-                    Toast.makeText(AddGameActivity.this, "One or more fields is invalid! (Hint: Must have at least 1 copy, price cannot be 0, and absolutely no blank fields!)", Toast.LENGTH_LONG).show();
+                    StyleableToast.makeText(AddGameActivity.this, "One or more fields is invalid! (Hint: Must have at least 1 copy, price cannot be 0, and absolutely no blank fields!)", R.style.invalidToast).show();
                     return;
                 } else if (!validGame()){
-                    Toast.makeText(AddGameActivity.this, "This game already exists in the database!", Toast.LENGTH_LONG).show();
+                    StyleableToast.makeText(AddGameActivity.this, "This game already exists in the database!", R.style.invalidToast).show();
                     return;
                 } else {
                     addGameToDatabase();
@@ -85,7 +87,7 @@ public class AddGameActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Game newGame = new Game(GameTitle, GamePrice, GameDescription, GameCopies);
                         mGameShopDAO.insert(newGame);
-                        Toast.makeText(AddGameActivity.this, "Game successfully added!", Toast.LENGTH_LONG).show();
+                        StyleableToast.makeText(AddGameActivity.this, "Game successfully added!", R.style.successGameToast).show();
                         setFieldsBlank();
                     }
                 });

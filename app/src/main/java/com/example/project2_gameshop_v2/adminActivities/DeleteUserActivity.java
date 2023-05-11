@@ -27,6 +27,8 @@ import com.example.project2_gameshop_v2.userItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class DeleteUserActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private UserAdapter mAdapter;
@@ -80,7 +82,7 @@ public class DeleteUserActivity extends AppCompatActivity {
                         User userToDelete = mGameShopDAO.getUserByUsername(mUserList.get(position).getUserName());
                         mGameShopDAO.delete(userToDelete);
                         removeItem(position);
-                        Toast.makeText(DeleteUserActivity.this, "Deletion Successful!", Toast.LENGTH_LONG).show();
+                        StyleableToast.makeText(DeleteUserActivity.this, "Deletion Successful!", R.style.successDeleteUserToast).show();
                     }
                 });
         alertBuilder.setNegativeButton(getString(R.string.no),
