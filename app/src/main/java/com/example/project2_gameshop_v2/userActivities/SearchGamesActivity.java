@@ -29,6 +29,8 @@ import com.example.project2_gameshop_v2.db.GameShopDAO;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class SearchGamesActivity extends AppCompatActivity {
 
     private static final String USER_ID_KEY = "com.example.project2_gameshop_v2.userIdKey";
@@ -74,6 +76,8 @@ public class SearchGamesActivity extends AppCompatActivity {
                 mAutoCompleteTextView.setText("");
                 if (mGameShopDAO.getGameByName(selectedGame).getCopies() != 1) {
                     mButton.setText("Sold Out");
+                } else {
+                    mButton.setText("Purchase Game");
                 }
                 closeSearchKeyboard();
                 mButton.setVisibility(View.VISIBLE);
@@ -157,7 +161,7 @@ public class SearchGamesActivity extends AppCompatActivity {
                         mGameShopDAO.update(purchasedGame);
                         mUser.getGameList().add(purchasedGame);
                         mGameShopDAO.update(mUser);
-                        Toast.makeText(SearchGamesActivity.this, "Purchase Successful!", Toast.LENGTH_LONG).show();
+                        StyleableToast.makeText(SearchGamesActivity.this, "Purchase Successful!", R.style.successGameToast).show();
                         mTextView.setText(mGameShopDAO.getGameByName(selectedGame).toString());
                         if (mGameShopDAO.getGameByName(selectedGame).getCopies() != 1) {
                             mButton.setText("Sold Out");

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/search_games_bg"
     tools:context=".userActivities.SearchGamesActivity">
 
     <AutoCompleteTextView
@@ -12,6 +13,8 @@
         android:layout_height="57dp"
         android:completionThreshold="1"
         android:hint="@string/search_for_a_game"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:padding="16.5dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/searchTextView"
@@ -28,6 +31,7 @@
         android:textAlignment="center"
         android:text=""
         android:textSize="18sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -41,6 +45,7 @@
         android:layout_height="58dp"
         android:textSize="17sp"
         android:text="@string/purchase_game"
+        android:backgroundTint="@color/semiTransparentSkyBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

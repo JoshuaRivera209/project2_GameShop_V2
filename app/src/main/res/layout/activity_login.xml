@@ -4,29 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/firewatch_day_mobile_bg"
     tools:context=".startupActivities.LoginActivity">
 
     <EditText
         android:id="@+id/editTextLoginUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="210dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="96dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/username"
+        android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextLoginPassWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +41,7 @@
         android:layout_marginTop="24dp"
         android:textSize="18sp"
         android:text="@string/sign_in"
+        android:backgroundTint="@color/semiTransparentGrey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextLoginPassWord" />

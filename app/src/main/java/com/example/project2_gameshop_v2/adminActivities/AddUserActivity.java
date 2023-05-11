@@ -22,6 +22,8 @@ import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 import com.example.project2_gameshop_v2.startupActivities.LoginActivity;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class AddUserActivity extends AppCompatActivity {
 
     private EditText mAddUsername, mAddPassword, mPasswordConfirm;
@@ -98,7 +100,7 @@ public class AddUserActivity extends AppCompatActivity {
                         if (!passwordCheck()) {
                             if (!checkForUserInDatabase()) {
                                 addUserToDatabase(mUser);
-                                Toast.makeText(AddUserActivity.this, "User successfully added!", Toast.LENGTH_LONG).show();
+                                StyleableToast.makeText(AddUserActivity.this, "User successfully added!", R.style.successToast).show();
                                 setFieldsBlank();
                             }
                         }

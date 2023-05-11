@@ -4,19 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/firewatch_mobile_bg"
     tools:context=".startupActivities.CreateProfileActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_new_profile"
+        android:textSize="26dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSignupUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextSignupUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="@string/username"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,9 +38,11 @@
         android:id="@+id/editTextSignupPassWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="@string/password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="textPassword"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,13 +50,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSignupUserName" />
 
+    <EditText
+        android:id="@+id/editTextSignupPasswordConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/confirm_password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignupPassWord" />
+
     <Button
         android:id="@+id/buttonSignUp"
         android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="108dp"
         android:text="@string/sign_up"
         android:textSize="18sp"
+        android:background="#75000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +85,7 @@
         android:layout_height="wrap_content"
         android:text="@string/already_have_an_account_log_in_below"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSignUp"
@@ -63,6 +97,7 @@
         android:layout_height="60dp"
         android:text="@string/to_login"
         android:textSize="18sp"
+        android:background="#41000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

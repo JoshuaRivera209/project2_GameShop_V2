@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/manage_users_bg"
     tools:context=".adminActivities.ManageUsersActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="85dp"
         android:text="@string/add_user"
         android:textSize="20sp"
+        android:backgroundTint="#8011A5D6"
         app:layout_constraintBottom_toTopOf="@+id/addAdminButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +26,7 @@
         android:layout_height="85dp"
         android:text="@string/add_admin"
         android:textSize="20sp"
+        android:backgroundTint="#8011A5D6"
         app:layout_constraintBottom_toTopOf="@+id/deleteUserButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +39,7 @@
         android:layout_height="85dp"
         android:text="@string/delete_user"
         android:textSize="20sp"
+        android:backgroundTint="#8011A5D6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -22,6 +22,8 @@ import com.example.project2_gameshop_v2.userActivities.LandingPageActivity;
 
 import java.util.List;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText username, password;
@@ -52,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 getValuesFromDisplay();
                 if(checkForUserInDatabase()) {
                     if(!validatePassword()) {
-                        Toast.makeText(LoginActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
+                        StyleableToast.makeText(LoginActivity.this, "Invalid password", R.style.invalidToast).show();
                     } else {
                         Intent intent = LandingPageActivity.intentFactory(getApplicationContext(), mUser.getUserId());
                         startActivity(intent);
@@ -94,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean checkForUserInDatabase() {
         mUser = mGameShopDAO.getUserByUsername(mUsernameString);
         if(mUser == null) {
-            Toast.makeText(this, "no user " + mUsernameString + " found", Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(this, "no user " + mUsernameString + " found", R.style.invalidToast).show();
             return false;
         }
         return true;

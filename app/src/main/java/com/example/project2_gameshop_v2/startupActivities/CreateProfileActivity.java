@@ -18,10 +18,12 @@ import com.example.project2_gameshop_v2.User;
 import com.example.project2_gameshop_v2.db.AppDataBase;
 import com.example.project2_gameshop_v2.db.GameShopDAO;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class CreateProfileActivity extends AppCompatActivity {
 
-    EditText username, password;
-    private String mUsernameString, mPasswordString;
+    EditText username, password, passwordConfirm;
+    private String mUsernameString, mPasswordString, mPasswordConfirmString;
     private Button mSignupButton, mExistingLoginButton;
 
     private GameShopDAO mGameShopDAO;
@@ -40,6 +42,7 @@ public class CreateProfileActivity extends AppCompatActivity {
     private void wireupDisplay() {
         username = findViewById(R.id.editTextSignupUserName);
         password = findViewById(R.id.editTextSignupPassWord);
+        passwordConfirm = findViewById(R.id.editTextSignupPasswordConfirm);
 
         mSignupButton = findViewById(R.id.buttonSignUp);
         mSignupButton.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +50,12 @@ public class CreateProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getValuesFromDisplay();
                 if (!checkForUserInDatabase()) {
-                    addUserToDatabase(mUser);
-                    Intent intent = LoginActivity.intentFactory(getApplicationContext());
-                    startActivity(intent);
+                    if (passwordCheck()) {
+                        addUserToDatabase(mUser);
+                        StyleableToast.makeText(CreateProfileActivity.this, "Sign Up Successful!", R.style.successToast).show();
+                        Intent intent = LoginActivity.intentFactory(getApplicationContext());
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -64,9 +70,18 @@ public class CreateProfileActivity extends AppCompatActivity {
         });
     }
 
+    private boolean passwordCheck() {
+        if(mPasswordString.equals(mPasswordConfirmString)) {
+            return true;
+        }
+        StyleableToast.makeText(CreateProfileActivity.this, "Passwords do not match!", R.style.invalidToast).show();
+        return false;
+    }
+
     private void getValuesFromDisplay() {
         mUsernameString = username.getText().toString();
         mPasswordString = password.getText().toString();
+        mPasswordConfirmString = passwordConfirm.getText().toString();
     }
 
     private void getDatabase() {
@@ -85,7 +100,7 @@ public class CreateProfileActivity extends AppCompatActivity {
     private boolean checkForUserInDatabase() {
         mUser = mGameShopDAO.getUserByUsername(mUsernameString);
         if(mUser != null) {
-            Toast.makeText(this, "User: " + mUsernameString + " already exists!", Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(this, "User: " + mUsernameString + " already exists!", R.style.invalidToast).show();
             return true;
         }
         return false;

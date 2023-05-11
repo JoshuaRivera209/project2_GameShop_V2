@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/star_wars_new_hope_bg"
     tools:context=".adminActivities.ManageGamesActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="85dp"
         android:text="@string/add_game"
         android:textSize="20sp"
+        android:backgroundTint="@color/semiTransparentPink"
         app:layout_constraintBottom_toTopOf="@+id/deleteGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +26,7 @@
         android:layout_height="85dp"
         android:text="@string/delete_game"
         android:textSize="20sp"
+        android:backgroundTint="@color/semiTransparentPink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
